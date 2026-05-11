@@ -16,8 +16,7 @@ class PlaceholderApp extends StatelessWidget {
             padding: EdgeInsets.all(24),
             child: Text(
               'Sei sul branch main. Quando l\'intervistatore te lo dice, esegui:\n\n'
-              'git checkout exercise-4\n\n'
-              'oppure il branch dell\'esercizio successivo.',
+              'git checkout exercise-1',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, height: 1.5),
             ),

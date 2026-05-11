@@ -26,16 +26,13 @@ flutter analyze
 
 ## Come funziona
 
-Gli esercizi sono organizzati in branch separati. **Resta sul branch `main`** finché l'intervistatore non ti dice di passare al prossimo esercizio.
-
-Quando ricevi il via:
+L'esercizio tecnico vive sul branch `exercise-1`. **Resta sul branch `main`** finché l'intervistatore non ti dice di passare:
 
 ```bash
-git checkout exercise-4   # → Esercizio 4 (bug nelle recensioni)
-git checkout exercise-5   # → Esercizio 5 (multitasking)
+git checkout exercise-1   # → Esercizio 1 (bug nelle recensioni)
 ```
 
-Ogni branch contiene il proprio `README.md` con le istruzioni dettagliate.
+Il branch contiene il proprio `README.md` con le istruzioni dettagliate.
 
 ## Note
 
