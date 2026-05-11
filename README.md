@@ -31,8 +31,8 @@ Gli esercizi sono organizzati in branch separati. **Resta sul branch `main`** fi
 Quando ricevi il via:
 
 ```bash
-git checkout exercise-4   # → primo esercizio
-git checkout exercise-5   # → secondo esercizio
+git checkout exercise-4   # → Esercizio 4 (bug nelle recensioni)
+git checkout exercise-5   # → Esercizio 5 (multitasking)
 ```
 
 Ogni branch contiene il proprio `README.md` con le istruzioni dettagliate.
