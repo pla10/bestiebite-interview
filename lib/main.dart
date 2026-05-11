@@ -12,7 +12,7 @@ class InterviewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Interview — Exercise 4',
+      title: 'Interview — Exercise 1',
       home: BlocProvider(
         create: (_) => ReviewsBloc(),
         child: const ReviewsPage(),

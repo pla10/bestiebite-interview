@@ -1,4 +1,4 @@
-# Esercizio 4 — Bug nelle recensioni
+# Esercizio 1 — Bug nelle recensioni
 
 **Tempo: ~20 minuti**
 
