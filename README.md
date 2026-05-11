@@ -12,7 +12,7 @@ Requisiti:
 Clona e prepara:
 
 ```bash
-git clone https://github.com/<USER>/bestiebite-interview.git
+git clone https://github.com/pla10/bestiebite-interview.git
 cd bestiebite-interview
 flutter pub get
 ```
