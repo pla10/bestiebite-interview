@@ -43,23 +43,24 @@ class ReviewsState extends Equatable {
 // Bloc
 // ─────────────────────────────────────────────────────────────
 class ReviewsBloc extends Bloc<ReviewsEvent, ReviewsState> {
-  ReviewsBloc()
-      : super(ReviewsState(reviews: <Review>[
-          const Review(
-            id: '1',
-            author: 'Mario Rossi',
-            rating: 5,
-            text: 'Pizza spaziale, tornerò sicuramente!',
-          ),
-          const Review(
-            id: '2',
-            author: 'Giulia Bianchi',
-            rating: 4,
-            text: 'Buono ma un po\' caro.',
-          ),
-        ])) {
+  ReviewsBloc() : super(ReviewsState(reviews: _seedReviews())) {
     on<AddReview>(_onAddReview);
   }
+
+  static List<Review> _seedReviews() => List<Review>.from([
+        const Review(
+          id: '1',
+          author: 'Mario Rossi',
+          rating: 5,
+          text: 'Pizza spaziale, tornerò sicuramente!',
+        ),
+        const Review(
+          id: '2',
+          author: 'Giulia Bianchi',
+          rating: 4,
+          text: 'Buono ma un po\' caro.',
+        ),
+      ]);
 
   void _onAddReview(AddReview event, Emitter<ReviewsState> emit) {
     state.reviews.add(event.review);

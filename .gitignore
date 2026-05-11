@@ -9,10 +9,3 @@ build/
 .vscode/
 *.iml
 .DS_Store
-ios/
-android/
-macos/
-linux/
-windows/
-web/
-pubspec.lock
