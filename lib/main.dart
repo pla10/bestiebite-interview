@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'user_page.dart';
+import 'bloc/reviews_bloc.dart';
+import 'pages/reviews_page.dart';
 
 void main() => runApp(const InterviewApp());
 
@@ -9,9 +11,12 @@ class InterviewApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Interview — Exercise 1',
-      home: UserPage(userId: 'user-123'),
+    return MaterialApp(
+      title: 'Interview — Exercise 4',
+      home: BlocProvider(
+        create: (_) => ReviewsBloc(),
+        child: const ReviewsPage(),
+      ),
     );
   }
 }

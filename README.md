@@ -1,27 +1,6 @@
-# Esercizio 1 — Bug avvelenato
+# Esercizio 4 — Bug nelle recensioni
 
 **Tempo: ~20 minuti**
-
-## Il problema
-
-L'app mostra il nome dell'utente `Mario Rossi` correttamente, ma c'è qualcosa che non va.
-
-Esegui `flutter run` e osserva i log della console.
-
-## Cosa noterai
-
-I log mostrano `FETCH user-123` ripetuto **migliaia di volte al secondo**, anche se l'utente non sta facendo nulla. In produzione questo manderebbe in DDoS il nostro backend.
-
-## Il tuo compito
-
-1. **Capisci perché** sta succedendo
-2. **Aggiusta** in modo che la `fetchUser` venga chiamata **una sola volta** all'apertura della pagina
-3. Spiega ad alta voce il tuo ragionamento mentre lavori
-
-## Vincoli
-
-- Non puoi modificare `user_api.dart` (immagina sia codice di una libreria esterna)
-- La UI deve continuare a mostrare il nome utente dopo il caricamento, con uno spinner durante l'attesa
 
 ## Setup
 
@@ -30,8 +9,44 @@ flutter pub get
 flutter run -d chrome   # o un simulatore di tua scelta
 ```
 
+## Il sintomo
+
+L'app mostra una pagina **Recensioni** con due elementi iniziali (Mario, Giulia).
+
+Premi il pulsante **+**. Compare uno snackbar che dice "Recensione aggiunta!" ma la lista **non mostra la nuova recensione**.
+
+Solo facendo hot **restart** (non hot reload) le nuove recensioni compaiono. Quindi l'aggiunta sta avvenendo, ma la UI non si aggiorna in tempo reale.
+
+In produzione questo causerebbe utenti che pensano di non aver inviato la recensione, riprovano N volte, generando recensioni duplicate.
+
+## Il tuo compito
+
+1. **Riproduci** il bug (clicca + più volte, osserva)
+2. **Identifica** la causa
+3. **Aggiusta**
+4. **Verifica** con `flutter run` che la lista si aggiorni immediatamente al tap
+
 Puoi usare Claude Code liberamente.
+
+## Vincoli
+
+- Non puoi modificare `lib/pages/reviews_page.dart` (immagina sia codice templated della UI)
+- L'architettura deve restare **BLoC pattern**
+- Devi mantenere `Equatable` sullo `ReviewsState` (convenzione del codebase)
+
+## Architettura del file
+
+```
+lib/
+├── main.dart                  # entry point, BlocProvider
+├── bloc/
+│   └── reviews_bloc.dart      # ReviewsBloc + Event + State
+├── models/
+│   └── review.dart            # Review (Equatable)
+└── pages/
+    └── reviews_page.dart      # BlocBuilder + FAB (NON TOCCARE)
+```
 
 ---
 
-Quando hai finito (o sei bloccato), avvisa l'intervistatore.
+Quando la fix è in piedi e verificata, avvisa l'intervistatore.
