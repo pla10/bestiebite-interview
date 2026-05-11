@@ -1,44 +1,37 @@
-# BestieBite — Colloquio tecnico mobile
+# Esercizio 1 — Bug avvelenato
 
-Benvenuto/a! Questo repo contiene gli esercizi pratici del colloquio tecnico.
+**Tempo: ~20 minuti**
 
-## Setup iniziale (5 min, prima di iniziare i timer)
+## Il problema
 
-Requisiti:
-- Flutter SDK 3.x installato e in PATH
-- Un IDE a tua scelta (VS Code, Android Studio, IntelliJ)
-- Un simulatore iOS o Android attivo, oppure Chrome per `flutter run -d chrome`
+L'app mostra il nome dell'utente `Mario Rossi` correttamente, ma c'è qualcosa che non va.
 
-Clona e prepara:
+Esegui `flutter run` e osserva i log della console.
+
+## Cosa noterai
+
+I log mostrano `FETCH user-123` ripetuto **migliaia di volte al secondo**, anche se l'utente non sta facendo nulla. In produzione questo manderebbe in DDoS il nostro backend.
+
+## Il tuo compito
+
+1. **Capisci perché** sta succedendo
+2. **Aggiusta** in modo che la `fetchUser` venga chiamata **una sola volta** all'apertura della pagina
+3. Spiega ad alta voce il tuo ragionamento mentre lavori
+
+## Vincoli
+
+- Non puoi modificare `user_api.dart` (immagina sia codice di una libreria esterna)
+- La UI deve continuare a mostrare il nome utente dopo il caricamento, con uno spinner durante l'attesa
+
+## Setup
 
 ```bash
-git clone https://github.com/<USER>/bestiebite-interview.git
-cd bestiebite-interview
 flutter pub get
+flutter run -d chrome   # o un simulatore di tua scelta
 ```
 
-Verifica che tutto funzioni:
+Puoi usare Claude Code liberamente.
 
-```bash
-flutter doctor
-flutter analyze
-```
+---
 
-## Come funziona
-
-Gli esercizi sono organizzati in branch separati. **Resta sul branch `main`** finché l'intervistatore non ti dice di passare al prossimo esercizio.
-
-Quando ricevi il via:
-
-```bash
-git checkout exercise-1   # → primo esercizio
-git checkout exercise-2   # → secondo esercizio
-```
-
-Ogni branch contiene il proprio `README.md` con le istruzioni dettagliate.
-
-## Note
-
-- Pensa ad alta voce: il *come* arrivi alla soluzione conta quanto il risultato
-- Chiedi chiarimenti quando serve
-- Non c'è una rubrica nascosta: vogliamo capire come ragioni
+Quando hai finito (o sei bloccato), avvisa l'intervistatore.
