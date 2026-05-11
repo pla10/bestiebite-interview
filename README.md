@@ -13,11 +13,11 @@ flutter run -d chrome   # o un simulatore di tua scelta
 
 L'app mostra una pagina **Recensioni** con due elementi iniziali (Mario, Giulia).
 
-Premi il pulsante **+**. Compare uno snackbar che dice "Recensione aggiunta!" ma la lista **non mostra la nuova recensione**.
+Premi il pulsante **+**:
+- Il **primo tap** aggiunge correttamente una nuova recensione (vedi il 3° elemento apparire)
+- Tap **successivi** mostrano sempre lo snackbar "Recensione aggiunta!" ma la lista **resta ferma al 3° elemento**
 
-Solo facendo hot **restart** (non hot reload) le nuove recensioni compaiono. Quindi l'aggiunta sta avvenendo, ma la UI non si aggiorna in tempo reale.
-
-In produzione questo causerebbe utenti che pensano di non aver inviato la recensione, riprovano N volte, generando recensioni duplicate.
+In produzione questo confonde gli utenti: pensano che le loro recensioni successive non siano state inviate, riprovano più volte, e generano duplicati silenti lato server.
 
 ## Il tuo compito
 
